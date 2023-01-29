@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.10.8
 USER root
 
 RUN apt-get update
@@ -23,7 +23,7 @@ RUN pip install django && \
 WORKDIR /workdir
 #RUN python -m pip install jupyterlab
 
-WORKDIR /workdir/opt/for_myapp
-CMD python manage.py runserver 0.0.0.0:8000
+WORKDIR /workdir/opt/
+#CMD python manage.py runserver 0.0.0.0:8000
 #CMD uwsgi --http :8000 --module for_myapp.wsgi
 #CMD uwsgi --ini uwsgi.ini

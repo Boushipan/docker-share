@@ -4,15 +4,37 @@ services:
     #restart: always
     build: ./django/
     container_name: 'django'
-    #working_dir: '/root/'
     tty: true #正常終了させないための仮プロセス
     ports:
       - "8000:8000" #Django用
     volumes:
       - ./django/opt:/workdir/opt
     networks:
-        - docker-kagoya_kagoya_network
+        - docker_network
 
-networks:
-  docker-kagoya_kagoya_network:
-    external: true
+  postgresql:
+    container_name: 'postgresql'
+    build: ./postgresql/
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+      - ./postgresql/init:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    #restart: always
+    networks:
+      docker_network:
+        ipv4_address: 192.168.2.2     
+
+
+networks: 
+  docker_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+       - subnet: 192.168.2.0/24
+         gateway: 192.168.2.1
+    
