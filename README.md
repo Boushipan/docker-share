@@ -28,6 +28,15 @@ docker-compose down
 ```
 docker ps
 ```
+### コンテナログの確認
+```
+docker logs -f コンテナ名  
+```
+
+### コンテナ内に入る
+```
+docker-compose exec コンテナ名 bash  
+```
 
 ### なぜかうまくいかない時
 ```
