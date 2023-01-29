@@ -7,6 +7,27 @@ python 3.10.8
 
 PostgreSQL 14.5
 
+## フォルダ構成
+```
+.
+├── Dockerfile
+├── Makefile
+├── docker-compose.yml
+├── requirements.txt
+├── django
+    ├── Dockerfile
+    └── opt
+        └── test.py
+└── postgresql
+    ├── Dockerfile
+    ├── init
+        └── init.sql　#初期化用ファイル
+    └── data
+        └── #sql永続データ保存先(git管理対象外)
+    
+```
+
+
 ## 使い方
 
 ### docker起動コマンド
