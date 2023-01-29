@@ -1,0 +1,18 @@
+version: '3'
+services:
+  django:
+    #restart: always
+    build: ./django/
+    container_name: 'django'
+    #working_dir: '/root/'
+    tty: true #正常終了させないための仮プロセス
+    ports:
+      - "8000:8000" #Django用
+    volumes:
+      - ./django/opt:/workdir/opt
+    networks:
+        - docker-kagoya_kagoya_network
+
+networks:
+  docker-kagoya_kagoya_network:
+    external: true
