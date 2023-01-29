@@ -13,7 +13,6 @@ PostgreSQL 14.5
 ├── Dockerfile
 ├── Makefile
 ├── docker-compose.yml
-├── requirements.txt
 ├── django
     ├── Dockerfile
     └── opt
