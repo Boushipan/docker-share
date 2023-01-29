@@ -10,8 +10,6 @@ PostgreSQL 14.5
 ## フォルダ構成
 ```
 .
-├── Dockerfile
-├── Makefile
 ├── docker-compose.yml
 ├── django
     ├── Dockerfile
